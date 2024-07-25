@@ -1,11 +1,12 @@
-<div class="bg-dark border-right p-3" id="sidebar">
-  <h3 class="text-light">GifsApp</h3>
+<div class="bg-dark border-right py-3" id="sidebar">
+  <h3 class="text-light text-center">GifsApp</h3>
   <hr class="text-white">
 
-  <div class="list-group list-reset">
-    <button *ngFor="let tag of tagsHistory"
+  <div class="list-group list-reset text-center px-3">
+    <button *ngFor="let tag of tagsHistory; first as firstTag"
       (click)="clickOnTag( tag )"
-      class="list-group-item list-group-item-action rounded rounded-1 mb-1"
+      class="list-group-item list-group-item-action rounded rounded-1 mb-1 text-center fw-bold"
+      [ngClass]="{'text-danger': firstTag}"
     >
       {{ tag | titlecase }}
     </button>
