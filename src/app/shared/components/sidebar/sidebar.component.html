@@ -3,10 +3,13 @@
   <hr class="text-white">
 
   <div class="list-group list-reset text-center px-3">
-    <button *ngFor="let tag of tagsHistory; first as firstTag"
+    <button *ngFor="let tag of tagsHistory; first as firstTag; last as lastTag; index as i"
       (click)="clickOnTag( tag )"
-      class="list-group-item list-group-item-action rounded rounded-1 mb-1 text-center fw-bold"
-      [ngClass]="{'text-danger': firstTag}"
+      class="list-group-item list-group-item-action rounded rounded-1 mb-1 text-center fw-bold text-secondary"
+      [ngClass]="{
+        'text-white bg-primary': firstTag,
+        'text-danger': i === 9
+      }"
     >
       {{ tag | titlecase }}
     </button>
