@@ -21,14 +21,15 @@ export class SearchBoxComponent {
 
   searchTag(): void {
     const newTag = this.tagInput.nativeElement.value;
-    this.gifsService.numGifs = parseInt(this.numGifsInput.nativeElement.value);
-    this.gifsService.searchTag(newTag);
+    this.gifsService.numGifs = parseInt( this.numGifsInput.nativeElement.value );
+    this.gifsService.searchTag( newTag );
 
     this.tagInput.nativeElement.value = '';
   }
 
   changeNumGifs(): void {
-    this.gifsService.numGifs = parseInt(this.numGifsInput.nativeElement.value);
-    this.gifsService.searchTag(this.gifsService.lastTag);
+    this.gifsService.numGifs = parseInt( this.numGifsInput.nativeElement.value );
+    if ( this.gifsService.tagsHistory.length === 0 ) return;
+    this.gifsService.searchTag( this.gifsService.tagsHistory[0] );
   }
 }
